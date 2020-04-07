@@ -46,7 +46,7 @@
 /*민경추가 선택영역*/
 ::selection {
   color: white;
-  background: blue;
+  background: green;
 }
 
 *,
@@ -558,6 +558,7 @@ pre code {
   margin-right: auto;
   margin-left: auto;
 }
+/*
 @media (min-width: 576px) {
   .container {
     max-width: 540px;
@@ -577,6 +578,29 @@ pre code {
   .container {
     max-width: 1140px;
   }
+}
+*/
+
+#btnTop {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 99;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  background-color: gray;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 4px;
+  font-family: "sofiapro-bold",PingFangSC,sans-serif;
+  font-weight: 500;
+}
+
+#btnTop:hover {
+	background-color: #555;	
 }
 
 .container-fluid, .container-xl, .container-lg, .container-md, .container-sm {
@@ -3998,18 +4022,12 @@ input[type=button].btn-block {
   align-items: center;
   justify-content: space-between;
 }
-.navbar-brand {
-  display: inline-block;
-  padding-top: 0.3125rem;
-  padding-bottom: 0.3125rem;
-  margin-right: 1rem;
-  font-size: 1.25rem;
-  line-height: inherit;
-  white-space: nowrap;
-}
+
 .navbar-brand:hover, .navbar-brand:focus {
   text-decoration: none;
 }
+
+
 
 .navbar-nav {
   display: flex;
@@ -9871,11 +9889,10 @@ button.bg-dark:focus {
     border: 1px solid #ffffff;
     border-radius: 2px;
     font-size: 14px;
-    line-height: 36px;
-    padding: 0 16px;
+    line-height: 33px;
     cursor: pointer;
     position: relative;
-    text-align: left;
+    text-align: center;
 }
 
 select option { color: black; }
@@ -10211,18 +10228,90 @@ hr.light {
   font-weight: 700;
   color: #212529;
 }
-#mainNav .navbar-nav .nav-item .nav-link {
-  color: #6c757d;
-  font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-weight: 700;
-  font-size: 0.9rem;
-  padding: 0.75rem 0;
+
+/* 민경 반응형 - 상단바 */
+
+@media(min-width: 576px) {
+	#mainNav .navbar-nav .nav-item .nav-link {
+	  color: #6c757d;
+	  font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	  font-weight: 700;
+	  font-size: 2.5rem;
+	  padding: 0.75rem 0;
+	  text-align: center;
+	}
+	.language-selection {
+		display: none;
+	}
+	.navbar-brand {
+	  display: inline-block;
+	  padding-top: 0.3125rem;
+	  padding-bottom: 0.3125rem;
+	  margin-right: 1rem;
+	  font-size: 2rem;
+	  line-height: inherit;
+	  white-space: nowrap;
+	}
+	.font-korean-title2 {
+    font-family: "sofiapro-bold",PingFangSC,sans-serif;
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 1.2;
+    color: white;
+    margin: 36px auto 0;
+	}
+ header.masthead h1 {
+    font-size: 4rem;
+  }
+  
+	
 }
+@media(min-width: 992px) {
+	#mainNav .navbar-nav .nav-item .nav-link {
+	    color: #6c757d;
+	    font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	    font-weight: 700;
+	    font-size: 0.9rem;
+	    padding: 0.75rem 0;
+	}
+	.language-selection {
+		display: block;
+	}
+	.navbar-brand {
+	  display: inline-block;
+	  padding-top: 0.3125rem;
+	  padding-bottom: 0.3125rem;
+	  margin-right: 1rem;
+	  font-size: 1.25rem;
+	  line-height: inherit;
+	  white-space: nowrap;
+	}
+	.nav-lang {
+	display: none;
+	}
+	.font-korean-title2 {
+    font-family: "sofiapro-bold",PingFangSC,sans-serif;
+    font-weight: 700;
+    font-size: 43PX;
+    line-height: 1.2;
+    color: white;
+    margin: 36px auto 0;
+	}
+
+  .page-section2 h2 {
+  font-size: 2rem;
+  }
+   header.masthead h1 {
+    font-size: 3.5rem;
+  }
+  
+}
+
 #mainNav .navbar-nav .nav-item .nav-link:hover, #mainNav .navbar-nav .nav-item .nav-link:active {
-  color: #f4623a;
+  color: /*#f4623a*/green;
 }
 #mainNav .navbar-nav .nav-item .nav-link.active {
-  color: #f4623a !important;
+  color: /*#f4623a*/green !important;
 }
 @media (min-width: 992px) {
   #mainNav {
@@ -10255,15 +10344,17 @@ hr.light {
     color: #212529;
   }
   #mainNav.navbar-scrolled .navbar-brand:hover {
-    color: #f4623a;
+    color: /*#f4623a*/green;
   }
   #mainNav.navbar-scrolled .navbar-nav .nav-item .nav-link {
     color: #212529;
   }
   #mainNav.navbar-scrolled .navbar-nav .nav-item .nav-link:hover {
-    color: #f4623a;
+    color: /*#f4623a*/green;
   }
 }
+
+
 
 
 header.masthead {
@@ -10275,14 +10366,8 @@ header.masthead {
   background-attachment: scroll;
   background-size: cover;
 }
-header.masthead h1 {
-  font-size: 2.25rem;
-}
-  .page-section2 h2 {
-  font-size: 2rem;
-  }
   
-@media (min-width: 992px) {
+/*@media (min-width: 992px) {*/
   header.masthead {
     height: 100vh;
     min-height: 40rem;
@@ -10292,19 +10377,11 @@ header.masthead h1 {
   header.masthead p {
     font-size: 1.15rem;
   }
-  header.masthead h1 {
-    font-size: 3rem;
-  }
-  .page-section2 h2 {
-  font-size: 2rem;
-  }  
 
   
-@media (min-width: 1200px) {
-  header.masthead h1 {
-    font-size: 3.5rem;
-  }
-}
+/*@media (min-width: 1200px) {*/
+ 
+
 
 #portfolio .container-fluid, #portfolio .container-sm, #portfolio .container-md, #portfolio .container-lg, #portfolio .container-xl {
   max-width: 1920px;
@@ -10387,7 +10464,7 @@ header .overlay {
   opacity: 0.5;
   z-index: 1;
 }
-
+/*
 @media (pointer: coarse) and (hover: none) {
   header {
     background: url('https://source.unsplash.com/XT5OInaElMw/1600x900') black no-repeat center center scroll;
@@ -10396,4 +10473,5 @@ header .overlay {
     display: none;
   }
 }
+*/
 
