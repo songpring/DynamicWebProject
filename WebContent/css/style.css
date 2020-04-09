@@ -10204,9 +10204,50 @@ hr.light {
   color: #212529;
 }
 
+.map-title {
+	margin-bottom: 3rem;
+}
+
+iframe {
+	font-size: 2rem;
+}
+
+
 /* 민경 반응형 - 상단바 */
 
 @media(min-width: 576px) {
+	
+	.table-list {
+		display: table;   /* Allow the centering to work */
+		margin: 0 auto;
+	}
+	
+	.table-list .ico {
+		width: 6rem;
+		height: 6rem;
+		border-radius: 50px;
+	}
+	
+	.footer-small .mg-top {
+		margin-top: 30px;
+	}
+	
+	.footer-small .small {
+		font-size: 100%;
+	}
+	
+	.footer-small .sns-link li {
+		margin: 10px;
+	}
+	
+	.footer-big {
+		display: none;
+	}
+	
+	.footer-small {
+		display: block;
+	}
+	
 	#mainNav .navbar-nav .nav-item .nav-link {
 	  color: #6c757d;
 	  font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -10242,7 +10283,7 @@ hr.light {
 	.font-korean-content {
 		font-family: "sofiapro-medium",PingFangSC,sans-serif;
 	    font-weight: 600;
-	    font-size: 2rem;
+	    font-size: 2.5rem;
 	    line-height: 32px;
 	    margin-bottom: 32px;
 	}
@@ -10277,8 +10318,26 @@ hr.light {
 	.google-map iframe {
 	width: -webkit-fill-available;
 	}
+	
+	.footer-none {
+	display: none;
+	}
+	
+	.footer-sns {
+	display: none;
+	}
+
 }
 @media(min-width: 992px) {
+	
+	
+	.footer-big {
+		display: block;
+	}
+	
+	.footer-small {
+		display: none;
+	}
 	.btn-xl {
   padding: 1.25rem 2.25rem;
   font-size: 1.1rem;
@@ -10353,6 +10412,8 @@ hr.light {
   font-weight: 600;
   text-transform: uppercase;
 }
+
+
 }
 
 #mainNav .navbar-nav .nav-item .nav-link:hover, #mainNav .navbar-nav .nav-item .nav-link:active {
