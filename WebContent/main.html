@@ -72,6 +72,13 @@
 						href="#" data-toggle="dropdown-submenu" aria-expanded="false">Language</a>
 					</li> -->
 				</ul>
+				
+				<script type="text/javascript">
+					$('.nav-link').click(function(){
+						$('.navbar-collapse').collapse('hide');
+						
+					});
+				</script>
 			</div>
 			<div class="jsx-3914025233 jsx-1667329752 language-selection">
 				<p class="jsx-3914025233 jsx-1667329752">
@@ -348,7 +355,7 @@
 	var mybutton = document.getElementById("btnTop");
 	window.onscroll = function() {scrollFunction()};
 	
-	function scrollFunction() {
+	function scrollFunction(x) {
 		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
 			mybutton.style.display = "block";
 		} else {
