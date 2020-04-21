@@ -34,7 +34,7 @@
   <link rel="stylesheet" href="http://apply.wvene.com/assets/plugins/iCheck/all.css">  
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="http://apply.wvene.com/assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-  <link rel="stylesheet" href="http://apply.wvene.com/assets/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="css/adminLTE/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="http://apply.wvene.com/assets/dist/css/skins/_all-skins.min.css">
@@ -65,30 +65,53 @@
 <input type="hidden" name="uploadfiles" value="">
     <!-- Main content -->
     <section class="content">
-  
+  		
       <!-- general form elements disabled -->
       <div class="box box-warning">
+      
         <div class="box-header with-border">
           <h3 class="box-title">Gfun Creator Application Form</h3>
+          <!-- <select class="language">
+          	<option selected="selected">한국어</option>
+          	<option>English</option>
+          </select> -->
+          <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+                <a href="#" class="dropdown-toggle language-a" data-toggle="dropdown"> Language <span class="caret"></span></a>
+                <ul class="dropdown-menu dropdown-width" role="menu">
+                  <li><a href="apply_kor.html">한국어</a></li>
+                  <li><a href="">English</a></li>
+                </ul>
+          </li>
+        </ul> 
         </div>
         <!-- /.box-header -->
         <div class="box-body">
           <div class="row">
             <div class="col-md-12">
 
-
-              <div class="alert alert-warning alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                <p><strong>Gfun</strong> is looking for Creators </p>
-                <p>Come and Show us what you've got!</p>
-                <p>Spread your career in Korea!</p>
-                <p>&nbsp;</p>
-                <p>Interested applicants may submit below form with your photos.</p>
-                <p>- Must be over 18 years old </p>
-                <p>- Preferred language: English, Korean</p>
-              </div>
-
-
+				<div class="form-group">
+	              <div class="alert alert-warning alert-dismissible" role="alert">
+	                <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+	                <p><strong>지펀</strong> is looking for Creators </p>
+	                <p>Come and Show us what you've got!</p>
+	                <p>Spread your career in Korea!</p>
+	                <p>&nbsp;</p>
+	                <p>Interested applicants may submit below form with your photos.</p>
+	                <p>- Must be over 18 years old </p>
+	                <p>- Preferred language: English, Korean</p> -->
+	                <p><strong>[Required] Collection and Use of Personal Information </strong></p>
+	                <p>Gfun is committed to comply with the Act on the Protection of Personal Information of Korea and other related legislation.</p>
+	                <p>1. Purpose: personal identification, inquiry and qualification check, contact, application history check</p>
+	                <p>2. Items: name, contact info, date of birth, SNS account, photos</p>	                
+	                <p><input type="checkbox" required="required"> Agreed <small class="text-danger">*</small></p>
+	                <p>&nbsp;</p>
+	                <p><strong>[Required] Qualification Check</strong></p>
+	                <p>1. Only adult can apply. (Older than 19 years of age)</p>
+	                <p>2. Korean and/or English speaker can apply.</p>	                
+	                <p><input type="checkbox" required="required"> Confirmed <small class="text-danger">*</small></p>
+	              </div>
+				</div>
             </div>
           </div>
 
@@ -111,19 +134,19 @@
               <!-- text input -->
               <div class="form-group">
                 <label>Name <small class="text-danger">*</small></label>
-                <input type="text" class="form-control" name="name" placeholder="Enter your full name ..." required="">
+                <input type="text" class="form-control" name="name" placeholder="Name" required="">
               </div>
 
             </div>
             <div class="col-md-6">
 
               <div class="form-group">
-                <label>Phone Number <small class="text-danger">*</small></label>
+                <label>Phone number <small class="text-danger">*</small></label>
                 <div class="input-group">
                   <div class="input-group-addon">
                     <i class="fa fa-phone"></i>
                   </div>
-                  <input type="tel" class="form-control" name="phonenumber" placeholder="phone number ..." required="">
+                  <input type="tel" class="form-control" name="phonenumber" placeholder="010-5555-5555" required="">
                   <!--input type="text" class="form-control" name="phonenumber" data-inputmask='"mask": "9999-999-9999"' data-mask placeholder="phone number ..." required//-->
                 </div>
                 <!-- /.input group -->
@@ -135,13 +158,13 @@
             <div class="col-md-6">
               <!-- Date -->
               <div class="form-group">
-                <label>Birth Date <small class="text-danger">*</small></label>
+                <label>Date of Birth <small class="text-danger">*</small></label>
 
                 <div class="input-group date">
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                  <input type="text" class="form-control pull-right" name="birthday" id="datepicker" placeholder="select your birth date ..." required="">
+                  <input type="text" class="form-control pull-right" name="birthday" id="datepicker" placeholder="Choose the date" required="">
                 </div>
                 <!-- /.input group -->
               </div>
@@ -151,17 +174,17 @@
 
               <!-- SNS -->
               <div class="form-group">
-                <label>SNS (Facebook/Instagram) <small class="text-danger">*</small></label>
+                <label>SNS account (Facebook/Instagram) <small class="text-danger">*</small></label>
 
                 <div class="input-group">
                   <div class="input-group-addon">
                     <i class="fa fa-facebook-official"></i>
                   </div>
-                  <input type="text" class="form-control pull-right sns" name="facebook" placeholder="Fill in one of your SNS account">
+                  <input type="text" class="form-control pull-right sns" name="facebook" placeholder="Facebook">
                   <div class="input-group-addon">
                     <i class="fa fa-instagram"></i>
                   </div>
-                  <input type="text" class="form-control pull-right sns" name="instagram">
+                  <input type="text" class="form-control pull-right sns" name="instagram" placeholder="Instagram">
                 </div>
                 <!-- /.input group -->
               </div>
@@ -176,7 +199,7 @@
               <div class="panel panel-default" style="margin-bottom:0;">
                 <div class="panel-heading">
                   <small class="pull-right"><i class="fa fa-photo"></i></small>
-                  <h3 class="panel-title"><a href="#">Upload profile photo.  <small>attach at least 3 of your photos</small><small class="text-danger">*</small></a></h3><a href="#">
+                  <h3 class="panel-title"><a href="#">Upload profile photos  <small> attach at least 3 photos</small><small class="text-danger">*</small></a></h3><a href="#">
                 </a></div><a href="#">
                 <div class="panel-body">
 
@@ -186,7 +209,7 @@
                         <!-- The fileinput-button span is used to style the file input field as button -->
                         <span class="btn btn-success fileinput-button">
                             <i class="glyphicon glyphicon-plus"></i>
-                            <span>Add files...</span>
+                            <span>Upload</span>
                             <input type="file" name="files[]" multiple="" accept="image/*">
                         </span>
                         <!-- The global file processing state -->
@@ -430,6 +453,8 @@ var regisubmit = function(oForm) {
       $('input[name="birthday"]').focus();
       return false;
     }
+    
+    print($('input[name="birthday"]').val())
 
     if( $.trim($('input[name="facebook"]').val()) == '' && $.trim($('input[name="instagram"]').val()) == '') {
       alert('Please fill out one of SNS accounts.');
@@ -446,7 +471,7 @@ var regisubmit = function(oForm) {
     oForm.uploadfiles.value = JSON.stringify($uploadfile);
 
     if( $.trim(oForm.uploadfiles.value) == '[]' ) {
-      alert('You must upload at least one profile photo.');
+      alert('You must upload at least 3 profile photo.');
       
       $('.fileinput-button span').focus();
       oForm.uploadfiles.focus();
@@ -473,7 +498,7 @@ $(document).ready(function() {
         else {
         }
         html.push('<div class="col-md-6">');
-        if(value['var_type'].toLowerCase() == 'input') {
+        if(value['var_type'].toLowerCase() == 'input') { 
           html.push('<div class="form-group">');
           if(value['var_require'] == 'Y'){
             html.push(' <label>'+value['var_name']+' <small class="text-danger">*</small></label>');
