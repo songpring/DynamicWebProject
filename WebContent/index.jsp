@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="utf-8" />
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+
         <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" /> -->
         <meta name="description" content="" />
         <meta name="author" content="" />
@@ -34,6 +35,7 @@
         
         <!-- favicon -->
         <link rel="icon" type="image/png" href="img/favicon-32x32.png" />
+
 </head>
 <body id="page-top">
 	<!-- Navigation-->
@@ -41,9 +43,9 @@
 		id="mainNav">
 		<div class="container">
 			<!-- <a class="navbar-brand js-scroll-trigger font-logo-text" href="main">Gfun</a> -->
-			<a class="navbar-brand js-scroll-trigger font-logo-text logo-align" href="main_en.html">
+			<a class="navbar-brand js-scroll-trigger font-logo-text logo-align" href="main.html">
 				<!-- <p class="font-logo-text"></p> -->
-				Gfun
+				(주)지펀
 				
 				<!-- <img class="logo-image" src="img/gfun_logo_web.png"> -->
 			</a>
@@ -53,18 +55,18 @@
 				aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<div class="collapse navbar-collapse" id="navbarResponsive">
+			<div class="collapse navbar-collapse dropdown" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto my-2 my-lg-0">
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#about">ABOUT</a></li>
+						href="#about">소개</a></li>
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#services">SERVICES</a></li>
+						href="#services">서비스</a></li>
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#portfolio">WORKS</a></li>
+						href="#portfolio">둘러보기</a></li>
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#contact">CONTACT</a></li>
+						href="#contact">연락처</a></li>
 						<li class="nav-item nav-lang"><a class="nav-link js-scroll-trigger"
-						href="main.html">한국어</a></li>
+						href="main_en.html">English</a></li>
 					<!-- 
 					<li class="nav-item dropdown"><a
 						class="nav-link link text-black dropdown-toggle display-4"
@@ -81,19 +83,19 @@
 			</div>
 			<div class="jsx-3914025233 jsx-1667329752 language-selection">
 				<p class="jsx-3914025233 jsx-1667329752">
-					<span class="jsx-3914025233 jsx-1667329752" id="demo">언어</span>
+					<span class="jsx-3914025233 jsx-1667329752" id="demo">Language</span>
 				</p>
 				<select onchange="myFunction()" id="mySelect"
 					class="jsx-3914025233 jsx-1667329752 language-selection-form">
-					<option value="ko" data-alias="ko-KR">한국어</option>
-					<option selected="" value="en" data-alias="en">English</option>
+					<option selected="" value="ko" data-alias="ko-KR">한국어</option>
+					<option value="en" data-alias="en">English</option>
 				</select>
 			</div>
 			<script>
 				function myFunction() {
 					var x = document.getElementById("mySelect").value;
-					if (x == "ko")
-						location.href='main.html';
+					if (x == "en")
+						location.href='main_en.html';
 				}
 			</script>
 		</div>
@@ -132,9 +134,8 @@
 		<div class="container h-100">
 			<div class="d-flex h-100 text-center align-items-center">
 				<div class="w-100 text-white">
-					<h1 class="display-3 font-korean-title">
-					Welcome to Gfun <br>
-					creating new Online trending contents</h1>
+					<h1 class="display-3 font-korean-title">새로운 온라인 트랜드 콘텐츠를 만드는
+						기업 Gfun에 오신것을 환영합니다.</h1>
 					<p class="lead mb-0 font-korean-title"></p>
 				</div>
 			</div>
@@ -146,13 +147,12 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-lg-8 text-center">
-					<h2 class="text-white mt-0 font-korean-title2">
-					Gfun is a global communications based platform supporting 
-					contents services/marketing and creators</h2>
+					<h2 class="text-white mt-0 font-korean-title2">Gfun은 글로벌커뮤니케이션
+						플랫폼을 기반으로한 멀티 엔터테인먼트 콘텐츠 서비스 마케팅, 재능있는 크리에이터들의 콘텐츠 제작을 지원합니다.</h2>
 					<hr class="divider light my-4" />
 					<p class="text-white-50 mb-4"></p>
 					<a class="btn btn-light btn-xl js-scroll-trigger font-korean-link"
-						href="#services">get started!</a>
+						href="#services">시작하기</a>
 				</div>
 			</div>
 		</div>
@@ -160,27 +160,27 @@
 	<!-- Services section-->
 	<section class="page-section" id="services">
 		<div class="container">
-			<h2 class="text-center mt-0 font-korean-h2">What We Do</h2>
+			<h2 class="text-center mt-0 font-korean-h2">Gfun 소개</h2>
 			<hr class="divider my-3" />
 			<div class="row">
 				<div class="col-lg-4 col-xs-4 text-center">
 					<div class="mt-5">
 						<i class="fas fa-4x fa-gem text-primary mb-3"></i>
-						<h3 class="h4 mb-2 font-korean-content">Dynamic Multimedia Platform</h3>
+						<h3 class="h4 mb-2 font-korean-content">다양한 멀티미디어 플랫폼</h3>
 						<p class="text-muted mb-0"></p>
 					</div>
 				</div>
 				<div class="col-lg-4 col-xs-4 text-center">
 					<div class="mt-5">
 						<i class="fas fa-4x fa-laptop-code text-primary mb-3"></i>
-						<h3 class="h4 mb-2 font-korean-content">Global Social Community Application</h3>
+						<h3 class="h4 mb-2 font-korean-content">글로벌 소셜 커뮤니티 어플리케이션</h3>
 						<p class="text-muted mb-0"></p>
 					</div>
 				</div>
 				<div class="col-lg-4 col-xs-4 text-center">
 					<div class="mt-5">
 						<i class="fas fa-4x fa-globe text-primary mb-3"></i>
-						<h3 class="h4 mb-2 font-korean-content">Find Creators</h3>
+						<h3 class="h4 mb-2 font-korean-content">크리에이터 양성</h3>
 						<p class="text-muted mb-0"></p>
 					</div>
 				</div>
@@ -202,7 +202,7 @@
 						src="img/portfolio/thumbnails/1.jpg" alt="" />-->
 						<div class="portfolio-box-caption">
 							<div class="project-category text-white-50">Category</div>
-							<div class="project-name font-korean-content">Multimedia Platform</div>
+							<div class="project-name font-korean-content">멀티미디어플랫폼</div>
 						</div></a>
 				</div>
 				<div class="col-lg-4 col-xs-3">
@@ -217,7 +217,7 @@
 						src="img/portfolio/thumbnails/2.jpg" alt="" /> -->
 						<div class="portfolio-box-caption">
 							<div class="project-category text-white-50">Category</div>
-							<div class="project-name font-korean-content">Global SNS Application</div>
+							<div class="project-name font-korean-content">글로벌 SNS 앱</div>
 						</div></a>
 				</div>
 				<div class="col-lg-4 col-xs-3">
@@ -231,7 +231,7 @@
 
 						<div class="portfolio-box-caption">
 							<div class="project-category text-white-50">Category</div>
-							<div class="project-name font-korean-content">Find Creators</div>
+							<div class="project-name font-korean-content">크리에이터 양성</div>
 						</div></a>
 				</div>
 				<!-- <div class="col-lg-4 col-xs-6">
@@ -282,16 +282,14 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-lg-8 text-center">
-					<h2 class="text-white mt-0 font-korean-title2">Apply to Gfun</h2>
+					<h2 class="text-white mt-0 font-korean-title2">Gfun 지원하기</h2>
 					<hr class="divider light my-4" />
 					<p class="text-white-50 mb-4"></p>
-					<a class="btn btn-light2 btn-xl btn-margin" href="recruit.html">Jobs</a> 
-					<!-- <a
-				class="btn btn-light2 btn-xl" target="_blank"
-				href="http://apply.wvene.com/contactus?fbclid=IwAR21n6XIWFJDsUiAD2zfNwtVUBx0CKhnGd0M0TKkflAXUQfbpkErR8JN4IA">Creator</a> -->
-				<a
-				class="btn btn-light2 btn-xl" target="_blank"
-				href="http://apply.wvene.com/contactus">Creator</a>
+					<a class="btn btn-light2 btn-xl btn-margin" href="recruit.html">입사지원</a> 
+					<!-- <a class="btn btn-light2 btn-xl" target="_blank"
+				href="http://apply.wvene.com/contactus?fbclid=IwAR21n6XIWFJDsUiAD2zfNwtVUBx0CKhnGd0M0TKkflAXUQfbpkErR8JN4IA">크리에이터지원</a> -->
+				<a class="btn btn-light2 btn-xl" target="_blank"
+				href="apply_kor.html">크리에이터지원</a>
 				</div>
 			</div>
 		</div>
@@ -302,7 +300,7 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-lg-8 text-center">
-					<h2 class="mt-0 font-korean-h2">Contact</h2>
+					<h2 class="mt-0 font-korean-h2">연락처</h2>
 					<hr class="divider my-4" />
 					<p class="text-muted mb-5"></p>
 				</div>
@@ -324,7 +322,7 @@
 			<div class="row">
 				<div class="map-title col-xs-12 col-xs-12 col-lg-6 align-center">
 					<h2
-						class="mbr-section-title mbr-fonts-style font-korean-h2 display-2">Busan</h2>
+						class="mbr-section-title mbr-fonts-style font-korean-h2 display-2">부산</h2>
 					<div class="google-map">
 						<iframe
 							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.213071560551!2d129.12386151562475!3d35.17624158031515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3568931ec370acfb%3A0xffdd07ec62664d63!2z67K97IKwZS3shLzthYDtgbTrnpjsiqTsm5AgMeywqA!5e0!3m2!1sen!2skr!4v1585197523684!5m2!1sen!2skr"
@@ -334,7 +332,7 @@
 				</div>
 				<div class="map-title col-xs-12 col-xs-12 col-lg-6 align-center">
 					<h2
-						class="mbr-section-title mbr-fonts-style font-korean-h2 display-2">Manila</h2>
+						class="mbr-section-title mbr-fonts-style font-korean-h2 display-2">마닐라</h2>
 					<div class="google-map">
 						<iframe
 							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15447.015666512694!2d121.0222044883235!3d14.55606013986439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c93a2de084f9%3A0x53c2a362134e4c95!2sWV%20entertainment!5e0!3m2!1sen!2skr!4v1585197338756!5m2!1sen!2skr"
@@ -353,6 +351,28 @@
 			</div>
 		</div>
 	</section>
+	
+	<button onclick="topFunction()" id="btnTop" title="Go to top">Top</button>
+	<script type="text/javascript">
+	
+	var mybutton = document.getElementById("btnTop");
+	window.onscroll = function() {scrollFunction()};
+	
+	function scrollFunction(x) {
+		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+			mybutton.style.display = "block";
+		} else {
+			mybutton.style.display = "none";
+		}
+	}
+	
+	// When the user clicks on the button, scroll to the top of the document
+	function topFunction() {
+	  document.body.scrollTop = 0;
+	  document.documentElement.scrollTop = 0;
+	}
+	</script>
+	
 	<!-- Footer-->
 	<footer class="bg-light py-5 footer-big">
 		<!-- Footer Links -->
@@ -363,7 +383,7 @@
 				<!-- Grid column -->
 				<div class="col-md-4 mt-md-0 mt-3">
 				
-				<p class="footer-logo footer-logo-text">Gfun</p>
+				<p class="footer-logo footer-logo-text">(주)지펀</p>
 
 					<!-- Content
 					<h5>Gfun</h5>
@@ -381,10 +401,10 @@
 
 					<ul
 						class="list-unstyled footer-link">
-						<li><a href="#about">ABOUT</a></li>
-						<li><a href="#services">SERVICES</a></li>
-						<li><a href="#portfolio">WORKS</a></li>
-						<li><a href="#contact">CONTACT</a></li>
+						<li><a href="#about">소개</a></li>
+						<li><a href="#services">서비스</a></li>
+						<li><a href="#portfolio">둘러보기</a></li>
+						<li><a href="#contact">연락처</a></li>
 					</ul>
 
 				</div>
