@@ -443,7 +443,7 @@ var regisubmit = function(oForm) {
       return false;
     }
 
-    if( $.trim($('input[name="facebook"]').val()) == '' && $.trim($('input[name="instagram"]').val()) == '') {
+    if( $.trim($('input[name="sns"]').val()) == '' && $.trim($('input[name="instagram"]').val()) == '') {
         alert('Please fill out one of SNS accounts.');
         $('input[name="sns"]').focus();
         return false;
