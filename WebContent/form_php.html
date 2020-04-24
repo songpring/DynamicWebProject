@@ -11,7 +11,7 @@ $hidden_attributes = array('uploadfiles'=>'');
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>COCOTV Live Model Application Form</title>
+  <title>Be Our Creator</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -63,13 +63,24 @@ $hidden_attributes = array('uploadfiles'=>'');
 
 
     <?php echo form_open_multipart('http://apply.wvene.com/contactus/register', 'id="fileupload" onsubmit="return regisubmit(this)"',$hidden_attributes);?>
+    
+    
     <!-- Main content -->
     <section class="content">
   
       <!-- general form elements disabled -->
       <div class="box box-warning">
         <div class="box-header with-border">
-          <h3 class="box-title">General Informaiton</h3>
+          <h3 class="box-title">Creator Application Form</h3>
+          <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+                <a href="#" class="dropdown-toggle language-a" data-toggle="dropdown"> Language <span class="caret"></span></a>
+                <ul class="dropdown-menu dropdown-width" role="menu">
+                  <li><a href="#" onclick="$('.kor-ver').show();$('.eng-ver').hide()">한국어</a></li>
+                  <li><a href="#" onclick="$('.eng-ver').show();$('.kor-ver').hide()">English</a></li>
+                </ul>
+          </li>
+        </ul> 
         </div>
         <!-- /.box-header -->
         <div class="box-body">

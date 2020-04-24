@@ -54,6 +54,9 @@
 		margin: 0 auto;
 		width: 25%
 	}
+	.kor-ver {
+	display: none;
+	}
 </style>
 </head>
 <body>
@@ -61,7 +64,7 @@
 <div class="wrapper">
 
 
-    <form action="http://apply.wvene.com/contactus/register" id="fileupload" onsubmit="return regisubmit(this)" enctype="multipart/form-data" method="post" accept-charset="utf-8">
+<form action="http://apply.wvene.com/contactus/register" id="fileupload" onsubmit="return regisubmit(this)" enctype="multipart/form-data" method="post" accept-charset="utf-8">
 <input type="hidden" name="uploadfiles" value="">
     <!-- Main content -->
     <section class="content">
@@ -79,19 +82,135 @@
           <li class="dropdown">
                 <a href="#" class="dropdown-toggle language-a" data-toggle="dropdown"> Language <span class="caret"></span></a>
                 <ul class="dropdown-menu dropdown-width" role="menu">
-                  <li><a href="apply_kor.html">한국어</a></li>
-                  <li><a href="">English</a></li>
+                  <li><a href="#" onclick="$('.kor-ver').show();$('.eng-ver').hide()">한국어</a></li>
+                  <li><a href="#" onclick="$('.eng-ver').show();$('.kor-ver').hide()">English</a></li>
                 </ul>
           </li>
         </ul> 
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-          <div class="row">
+         <div class="kor-ver">
+         <div class="row">
             <div class="col-md-12">
 
 				<div class="form-group">
 	              <div class="alert alert-warning alert-dismissible" role="alert">
+	                <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+	                <p><strong>지펀</strong> is looking for Creators </p>
+	                <p>Come and Show us what you've got!</p>
+	                <p>Spread your career in Korea!</p>
+	                <p>&nbsp;</p>
+	                <p>Interested applicants may submit below form with your photos.</p>
+	                <p>- Must be over 18 years old </p>
+	                <p>- Preferred language: English, Korean</p> -->
+	                <p><strong>[필수] 지원자격 요건 확인</strong></p>
+	                <p>1. 만 19세 이상 성인만 지원 가능합니다.</p>
+	                <p>2. 구사 언어가 한국어 또는 영어일 경우 지원 가능합니다.</p>	                
+	                <p><input type="checkbox" required="required"> 확인하였습니다 <small class="text-danger">*</small></p>
+	                <p>&nbsp;</p>
+	                <p><strong>[필수] 개인정보 수집·이용 동의</strong></p>
+	                <p>당사는 "개인정보보호법" 등 개인정보보호에 관한 제반 법령을 준수합니다.</p>
+	                <p>1. 목적: 지원자 개인 식별, 지원의사 확인, 의사소통, 지원이력 및 지원자격 확인</p>
+	                <p>2. 해당항목: 이름, 연락처, 생년월일, SNS 계정주소, 사진</p>	                
+	                <p><input type="checkbox" required="required"> 동의합니다 <small class="text-danger">*</small></p>
+	                <p>&nbsp;</p>
+	                <p><strong>[필수] 저작권 및 초상권 활용 동의</strong></p>
+	                <p>1. 목적: 당사 홈페이지 전반 및 광고물 내 활용 가능</p>
+	                <p>2. 해당항목: 제출한 프로필 사진 및 동영상</p>	                
+	                <p><input type="checkbox" required="required"> 동의합니다 <small class="text-danger">*</small></p>
+	              </div>
+				</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+            
+	            <!-- nationality selection -->
+	            <div class="form-group">
+	            <label>국적 <small class="text-danger">*</small></label><br>
+				  <input type="radio" id="Korean" name="nationality" value="Korean"
+				         checked>
+				  <label for="huey">한국</label>&nbsp;&nbsp;
+				  <input type="radio" id="Other" name="nationality" value="Other">
+				  <label for="dewey">기타</label>
+				</div>
+				</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+              <!-- text input -->
+              <div class="form-group">
+                <label>이름 <small class="text-danger">*</small></label>
+                <input type="text" class="form-control" name="name" placeholder="이름을 입력하세요" required="">
+              </div>
+
+            </div>
+            <div class="col-md-6">
+
+              <div class="form-group">
+                <label>전화번호 <small class="text-danger">*</small></label>
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <i class="fa fa-phone"></i>
+                  </div>
+                  <input type="tel" class="form-control" name="phonenumber" placeholder="010-5555-5555" required="">
+                  <!--input type="text" class="form-control" name="phonenumber" data-inputmask='"mask": "9999-999-9999"' data-mask placeholder="phone number ..." required//-->
+                </div>
+                <!-- /.input group -->
+              </div>
+
+            </div>
+            
+            
+            <div class="col-md-6">
+              <!-- Date -->
+              <div class="form-group">
+                <label>생년월일 <small class="text-danger">*</small></label>
+
+                <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  <input type="text" class="form-control pull-right" name="birthday" id="datepicker" placeholder="생년월일을 입력하세요" required="">
+                </div>
+                <!-- /.input group -->
+              </div>
+              <!-- /.form group -->
+            </div>
+            <div class="col-md-6">
+
+              <!-- SNS -->
+              <div class="form-group">
+                <label>SNS계정(페이스북/인스타그램) <small class="text-danger">*</small></label>
+
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <i class="fa fa-facebook-official"></i>
+                  </div>
+                  <input type="text" class="form-control pull-right sns" name="facebook" placeholder="페이스북 계정">
+                  <div class="input-group-addon">
+                    <i class="fa fa-instagram"></i>
+                  </div>
+                  <input type="text" class="form-control pull-right sns" name="instagram" placeholder="인스타그램 계정">
+                </div>
+                <!-- /.input group -->
+              </div>
+              <!-- /.form group -->
+            
+            </div>
+          </div>
+         
+         </div><!-- / .kor-ver -->
+        
+       	 <div class="eng-ver">
+          <div class="row">
+            <div class="col-md-12">
+
+				<div class="form-group">
+				
+	              <div class="alert alert-warning alert-dismissible eng-ver" role="alert">
 	                <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
 	                <p><strong>지펀</strong> is looking for Creators </p>
 	                <p>Come and Show us what you've got!</p>
@@ -196,7 +315,7 @@
             
             </div>
           </div>
-          
+          </div> <!-- / .eng-ver -->
           
           <div class="row">
             <div class="col-md-12">
