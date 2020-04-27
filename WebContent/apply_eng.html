@@ -11,10 +11,10 @@
 <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
 <link rel="stylesheet" href="http://apply.wvene.com/assets/plugins/jQuery-File-Upload-9.21.0/css/jquery.fileupload.css">
 <link rel="stylesheet" href="http://apply.wvene.com/assets/plugins/jQuery-File-Upload-9.21.0/css/jquery.fileupload-ui.css">
-<!-- CSS adjustments for browsers with JavaScript disabled 
+<!-- CSS adjustments for browsers with JavaScript disabled -->
 <noscript><link rel="stylesheet" href="/assets/plugins/jQuery-File-Upload-9.21.0/css/jquery.fileupload-noscript.css"></noscript>
 <noscript><link rel="stylesheet" href="/assets/plugins/jQuery-File-Upload-9.21.0/css/jquery.fileupload-ui-noscript.css"></noscript>
--->
+
   <!-- favicon -->
   <link rel="icon" type="image/png" href="img/favicon-32x32.png" />
         
@@ -58,11 +58,39 @@
 	display: none;
 	}
 </style>
+<script type="text/javascript">
+function kor() {
+	$('.kor-ver').show();
+	$('.eng-ver').hide();
+}
+function eng() {
+
+	$('.kor-ver').hide();
+	$('.eng-ver').show();
+}
+</script>
 </head>
 <body>
 <!-- Site wrapper -->
 <div class="wrapper">
 
+        <div class="box-header with-border">
+          <h3 class="box-title eng-ver">Creator Application Form</h3>
+          <h3 class="box-title kor-ver" style="display: none;">크리에이터 지원서 작성</h3>
+          <!-- <select class="language">
+          	<option selected="selected">한국어</option>
+          	<option>English</option>
+          </select> -->
+          <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+                <a href="#" class="dropdown-toggle language-a" data-toggle="dropdown"> Language <span class="caret"></span></a>
+                <ul class="dropdown-menu dropdown-width" role="menu">
+                  <li><a href="#" onclick="kor()">한국어</a></li>
+                  <li><a href="#" onclick="eng()">English</a></li>
+                </ul>
+          </li>
+        </ul> 
+        </div>
 
 <form action="http://apply.wvene.com/contactus/register" id="fileupload" onsubmit="return regisubmit(this)" enctype="multipart/form-data" method="post" accept-charset="utf-8">
 <input type="hidden" name="uploadfiles" value="">
@@ -72,22 +100,6 @@
       <!-- general form elements disabled -->
       <div class="box box-warning">
       
-        <div class="box-header with-border">
-          <h3 class="box-title">Creator Application Form</h3>
-          <!-- <select class="language">
-          	<option selected="selected">한국어</option>
-          	<option>English</option>
-          </select> -->
-          <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-                <a href="#" class="dropdown-toggle language-a" data-toggle="dropdown"> Language <span class="caret"></span></a>
-                <ul class="dropdown-menu dropdown-width" role="menu">
-                  <li><a href="#" onclick="$('.kor-ver').show();$('.eng-ver').hide()">한국어</a></li>
-                  <li><a href="#" onclick="$('.eng-ver').show();$('.kor-ver').hide()">English</a></li>
-                </ul>
-          </li>
-        </ul> 
-        </div>
         <!-- /.box-header -->
         <div class="box-body">
          <div class="kor-ver">
@@ -130,8 +142,7 @@
 	            <!-- nationality selection -->
 	            <div class="form-group">
 	            <label>국적 <small class="text-danger">*</small></label><br>
-				  <input type="radio" id="Korean" name="nationality" value="Korean"
-				         checked>
+				  <input type="radio" id="Korean" name="nationality" value="Korean" checked="">
 				  <label for="huey">한국</label>&nbsp;&nbsp;
 				  <input type="radio" id="Other" name="nationality" value="Other">
 				  <label for="dewey">기타</label>

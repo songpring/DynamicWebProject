@@ -1,0 +1,333 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+?>
+<?php $this->load->view('include/header')?>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Creator Request List page
+        <small>You can check and manage Interview Request information.</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="/contactus">Creator Request Management</a></li>
+        <li class="active">Creator Request List</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Creator Request list <small><a href="/contactus" target="_blank"> [page sample] contactus</a></small></h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div id="toolbar" class="form-inline">
+                <!--button id="insert" type="button" class="btn btn-default">등록</button//-->
+                <button id="update" type="button" class="btn btn-default" disabled>edit category</button>
+                <button id="delete" type="button" class="btn btn-default" disabled>delete row</button>
+
+                <div class="form-group" style="margin-left: 50px;">
+                  <select id="categorySel" class="form-control">
+                    <option value="">Select Category</option>
+                  </select>
+                </div>
+              </div>
+
+              <table id="table"
+                data-toggle="table"
+                data-toolbar="#toolbar"
+                data-classes="table table-striped table-bordered table-hover"
+                data-url="/contactus/list_data"
+                data-side-pagination="server"
+                data-pagination="true"
+                data-query-params="queryParams"
+                data-search="true"
+                data-page-list="[10, 20, 50, 100, 200]"
+                data-page-size="20"
+                data-id-field="no"
+                data-sort-order="desc">
+                <thead>
+                <tr>
+                  <th data-field="num" data-class="text-capitalize">Number</th>
+                  <th data-field="state" data-checkbox="true"></th>
+                  <th data-field="no" data-visible="false">unique-id</th>
+                  <th data-field="cate" data-sortable="true">Category</th>
+                  <th data-field="name" data-sortable="true">Name</th>
+                  <th data-field="nationality" data-sortable="true">Nationality</th>
+                  <th data-field="phonenumber" data-sortable="true">Phonenumber</th>
+                  <th data-field="birthday" data-sortable="true">Birthday</th>
+                  <th data-field="sns" data-sortable="true">Facebook</th>
+                  <th data-field="instagram" data-sortable="true">Instagram</th>
+                  <th data-field="uploadfiles" data-formatter="photoFormatter">photo</th>
+                  <th data-field="extends_var">extended variable</th>
+                  <th data-field="reg_datetime" data-sortable="true" data-formatter="dateFormatter" data-class="text-capitalize">registration time</th>
+                </tr>
+                </thead>
+              </table>
+
+            </div>
+          </div>
+        </div>
+      </div> 
+
+
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Register Interview Request</h4>
+        </div>
+        <form id="modal-form">
+        <input type="hidden" id="oper" name="oper" />
+        <input type="hidden" id="no" name="no" />        
+        <div class="modal-body">
+
+
+          <div class="form-group">
+            <label for="cate1" class="control-label">Category:</label>
+            <input type="text" class="form-control" id="cate1" name="cate1" list="list_cate1">
+                <datalist id='list_cate1'>
+                </datalist>       
+          </div>
+
+          
+          <!--div class="form-group">
+            <label for="username" class="control-label">username :</label>
+            <input type="text" class="form-control" id="username" name="username">
+          </div>  
+          <div class="form-group">
+            <label for="password" class="control-label">password :</label>
+            <input type="text" class="form-control" id="password" name="password">
+          </div>  
+          <div class="form-group">
+            <label for="nickname" class="control-label">nickname :</label>
+            <input type="text" class="form-control" id="nickname" name="nickname">
+          </div//-->  
+        </div>
+        </form>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">cancel</button>
+          <button type="button" class="btn btn-primary" id="submit">register</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+
+
+  <div class="modal fade" id="myPhotoModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">photo</h4>
+        </div>
+        <div class="modal-body">
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">확인</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+
+
+<?php $this->load->view('include/footer1')?>
+<script>
+// <![CDATA[
+
+var $table = $('#table'),
+  $modal = $('#myModal'),
+  //$insert = $('#insert'),
+  $update = $('#update'),
+  $delete = $('#delete'),
+  $html_modal = "",
+  selections = [];
+
+function getIdSelections() {
+  return $.map($table.bootstrapTable('getSelections'), function (row) {
+    return row.id
+  });
+}
+
+function photoFormatter(value, row, index) {
+
+  if(value)  {
+    /*
+
+    var html = [];
+    $.each(JSON.parse(value), function(index, val){
+      html.push('<img src="/uploads/contactus/files/thumbnail/'+val+'" class="photo-thumbnail" />')
+    });
+
+    return html.join('');
+    */    
+    var obj = JSON.parse(value);
+    //var obj = value;
+    if(obj.length>0){ 
+      if(obj.length>0) return '<a onclick="showPhoto(\''+row.name+'\',\''+obj+'\')"><img src="/uploads/contactus/files/thumbnail/'+obj[0]+'" class="photo-thumbnail" /></a>';
+      else return '<img src="/uploads/contactus/files/thumbnail/'+obj[0]+'" class="photo-thumbnail" />';
+    }
+    else return '';
+  }
+}
+
+
+var $load_cate = false;
+var $arr_category = [];
+var $select_category = $('#categorySel'),
+    $list_cate1 = $('#list_cate1');
+
+function queryParams(params) {
+
+  params.selectedCate = $select_category.val();
+  return params;
+}
+
+var configCategory = function() {
+
+  $select_category.html('<option value="">Select Category</option>');
+  $list_cate1.html('');
+
+  $.each($arr_category, function(key, value) {
+
+    $select_category.append($('<option>').text(value).attr('value',value));
+    $list_cate1.append($('<option>').attr('label',value).attr('value',value));
+  });
+
+  $load_cate = true;
+}
+
+var showPhoto = function(name, arr) {
+
+  var obj = arr.split(',');
+
+  $('#myPhotoModal .modal-title').text(name+'\'s profile photo '); 
+
+  var html = [];
+  $.each(obj, function(key,value) {
+    html.push('<img src="/uploads/contactus/files/'+value+'" class="photo-thumbnail img-responsive img-thumbnail" />');                
+  });
+
+  $('#myPhotoModal .modal-body').html(html.join(''));
+
+  $('#myPhotoModal').modal('show');
+}
+
+$(document).ready(function(){
+
+  $select_category.on('change', function() {
+     $table.bootstrapTable('refresh');
+  });
+
+  $table.on('check.bs.table uncheck.bs.table ' +
+      'check-all.bs.table uncheck-all.bs.table', function () {
+    $update.prop('disabled', !$table.bootstrapTable('getSelections').length || $table.bootstrapTable('getSelections').length!=1);
+    $delete.prop('disabled', !$table.bootstrapTable('getSelections').length);
+    // save your data, here just save the current page
+    selections = getIdSelections();
+    // push or splice the selections if you want to save all data selections
+  }); 
+
+  $table.on('load-success.bs.table', function (e, data) {
+
+    if(typeof data.cates != 'undefined') {
+      $.each(data.cates, function(key,value) {
+        if($.inArray(value['cate'], $arr_category) == -1) { 
+          $arr_category.push(value['cate']);                
+        }        
+      });
+    }
+
+    if(!$load_cate) configCategory();
+  });
+
+  $update.click(function () {   
+
+    $('#myModal .modal-title').text('Edit Interview Request');
+    $('#modal-form #oper').val('edit');
+    $('#myModal #submit').text('Edit');
+
+    $('#modal-form #no').val($table.bootstrapTable('getSelections')[0].id);
+    if($html_modal != '') {
+      $('#myModal .modal-body').html($html_modal);
+      $html_modal = "";
+    }
+    $('#modal-form #cate1').val($table.bootstrapTable('getSelections')[0].cate);
+
+    $modal.modal('show'); 
+
+  });
+
+  $delete.click(function () {   
+
+    $('#myModal .modal-title').text('Delete Interview Request');
+    $('#modal-form #oper').val('del');
+    $('#myModal #submit').text('Delete');
+
+    $('#modal-form #no').val(selections);
+
+    $html_modal = $('#myModal .modal-body').html();
+    $('#myModal .modal-body').html('<span>Are you sure you want to delete '+$table.bootstrapTable('getSelections').length+' items?</span>');
+
+    $modal.modal('show');
+
+  }); 
+
+  // submit
+  $('#myModal #submit').click(function () {
+
+    $.ajax({
+      url : '/contactus/list_data',
+      type : 'post',
+      data : $('#modal-form').serialize(),
+      dataType : 'json',
+      success : function(response) {
+        if(response.result=='success'){
+          $table.bootstrapTable('refresh');
+    
+          $update.prop('disabled', true);
+          $delete.prop('disabled', true);
+
+          if(response.oper == 'add') {
+            $('#modal-form')[0].reset();
+          }
+          else {
+          }
+        }
+      }
+    });
+
+    $modal.modal('hide');
+
+  });
+});
+
+
+// ]]>
+</script>
+<?php $this->load->view('include/footer2')?>

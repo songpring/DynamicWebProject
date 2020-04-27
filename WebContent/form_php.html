@@ -1,12 +1,3 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-
-
-$hidden_attributes = array('uploadfiles'=>'');
-?>
-
-
-<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -25,7 +16,11 @@ $hidden_attributes = array('uploadfiles'=>'');
 <noscript><link rel="stylesheet" href="/assets/plugins/jQuery-File-Upload-9.21.0/css/jquery.fileupload-noscript.css"></noscript>
 <noscript><link rel="stylesheet" href="/assets/plugins/jQuery-File-Upload-9.21.0/css/jquery.fileupload-ui-noscript.css"></noscript>
 
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 
+<!-- favicon -->	
+  <link rel="icon" type="image/png" href="/assets/dist/img/favicon-32x32.png" />
 
   <link rel="stylesheet" href="/assets/bower_components/bootstrap-table/dist/bootstrap-table.min.css" />
   <!-- Font Awesome -->
@@ -56,19 +51,23 @@ $hidden_attributes = array('uploadfiles'=>'');
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+<style>
+	.submit-button {
+		margin: 0 auto;
+		width: 25%
+	}
+</style>
 </head>
 <body>
 <!-- Site wrapper -->
 <div class="wrapper">
 
 
-    <?php echo form_open_multipart('http://apply.wvene.com/contactus/register', 'id="fileupload" onsubmit="return regisubmit(this)"',$hidden_attributes);?>
-    
-    
-    <!-- Main content -->
+<form action="http://apply.wvene.com/contactus/register" id="fileupload" onsubmit="return regisubmit(this)" enctype="multipart/form-data" method="post" accept-charset="utf-8">
+<input type="hidden" name="uploadfiles" value="">
+    <!-- Korean Main content -->
     <section class="content">
-  
-      <!-- general form elements disabled -->
+     <!-- general form elements disabled -->
       <div class="box box-warning">
         <div class="box-header with-border">
           <h3 class="box-title">Creator Application Form</h3>
@@ -76,8 +75,8 @@ $hidden_attributes = array('uploadfiles'=>'');
           <li class="dropdown">
                 <a href="#" class="dropdown-toggle language-a" data-toggle="dropdown"> Language <span class="caret"></span></a>
                 <ul class="dropdown-menu dropdown-width" role="menu">
-                  <li><a href="#" onclick="$('.kor-ver').show();$('.eng-ver').hide()">한국어</a></li>
-                  <li><a href="#" onclick="$('.eng-ver').show();$('.kor-ver').hide()">English</a></li>
+                  <li><a href="#" onclick="">한국어</a></li>
+                  <li><a href="#" onclick="">English</a></li>
                 </ul>
           </li>
         </ul> 
@@ -113,6 +112,7 @@ $hidden_attributes = array('uploadfiles'=>'');
 	                <p><input type="checkbox" required="required"> I agree <small class="text-danger">*</small></p>
 	              </div>
 				</div>
+				
             </div>
           </div>
 
@@ -121,12 +121,32 @@ $hidden_attributes = array('uploadfiles'=>'');
               <!-- nationality selection -->
 	            <div class="form-group">
 	            <label>Nationality <small class="text-danger">*</small></label><br>
-				  <input type="radio" id="Korean" name="nationality" value="Korean"
+				 <!--  <input type="radio" id="Korean" name="nationality" value="Korean"
 				         checked>
 				  <label for="huey">Korean</label>&nbsp;&nbsp;
 				  <input type="radio" id="Other" name="nationality" value="Other">
-				  <label for="dewey">Other</label>
+				  <label for="dewey">Other</label> -->
+  				   <input type="radio" name="nationality" id="r2" value="Korean" checked="checked"><label for="r2">Korean</label>
+				   <input type="radio" name="nationality" id="r1" value="Other" checked><label for="r1">Other</label>
+				   <input type="text" name="nationality" placeholder="Your country">
 				</div>
+				<script type="text/javascript">
+				$(document).ready(function(){
+					 
+				    // 라디오버튼 클릭시 이벤트 발생
+				    $("input:radio[name=nationality]").click(function(){
+				 
+				        if($("input[name=nationality]:checked").val() == "Other"){
+				            $("input:text[name=nationality]").attr("disabled",false);
+				            $("input:text[name=nationality]").val() = $("input[name=nationality]:checked").val();
+				 
+				        }else if($("input[name=nationality]:checked").val() == "Korean"){
+				              $("input:text[name=nationality]").attr("disabled",true);
+				        }
+				    });
+				});
+
+				</script>
             </div>
         </div>
         <div class="row">
@@ -199,8 +219,8 @@ $hidden_attributes = array('uploadfiles'=>'');
               <div class="panel panel-default" style="margin-bottom:0;">
                 <div class="panel-heading">
                   <small class="pull-right"><i class="fa fa-photo"></i></small>
-                  <h3 class="panel-title"><a href="#">Upload profile photo.  <small>attach your 3 photos</small><small class="text-danger">*</small></h3>
-                </div>
+                  <h3 class="panel-title"><a href="#">Upload profile photos.  <small>attach at least 3 photos</small><small class="text-danger">*</small></a></h3><a href="#">	
+                </a></div><a href="#">
                 <div class="panel-body">
 
 
@@ -210,7 +230,7 @@ $hidden_attributes = array('uploadfiles'=>'');
                         <span class="btn btn-success fileinput-button">
                             <i class="glyphicon glyphicon-plus"></i>
                             <span>Add files...</span>
-                            <input type="file" name="files[]" multiple accept="image/*">
+                            <input type="file" name="files[]" multiple="" accept="image/*">
                         </span>
                         <!-- The global file processing state -->
                         <span class="fileupload-process"></span>
@@ -230,25 +250,24 @@ $hidden_attributes = array('uploadfiles'=>'');
 
 
                 </div>
-              </div>
-
-
-            </div>
-          </div>
-          <!-- /.row -->          
-        </div>
+            </a></div><a href="#">	
+            </a></div><a href="#">	
+          </a></div><a href="#">	
+          <!-- /.row -->          	
+        </a></div><a href="#">
         <!-- /.box-body -->
 
         <!--div class="box-footer">
           It is a space for personal evaluation. Use hidden feature at the top
         </div//-->
-      </div>
+       </a></div>
       <!-- /.box  personal rating recode -->
 
-
+<div class="submit-button">
       <button type="submit" class="btn btn-primary btn-lg btn-block margin-bottom">Submit</button>
-      </form>
+</div>
     </section>
+      </form>
     <!-- /.content -->
 
 
@@ -359,7 +378,7 @@ $hidden_attributes = array('uploadfiles'=>'');
 
 
 <!-- Select2 -->
-<script type="text/javascript" src="/assets/bower_components/select2/dist/js/select2.full.min.js""></script>
+<script type="text/javascript" src="/assets/bower_components/select2/dist/js/select2.full.min.js" "=""></script>
 
 
 <script src="/assets/plugins/jQuery-File-Upload-9.21.0/js/vendor/jquery.ui.widget.js"></script>
@@ -454,6 +473,8 @@ var regisubmit = function(oForm) {
       return false;
     }
 
+ print($('input[name="birthday"]').val())
+
     if( $.trim($('input[name="sns"]').val()) == '' && $.trim($('input[name="instagram"]').val()) == '') {
         alert('Please fill out one of SNS accounts.');
         $('input[name="sns"]').focus();
@@ -469,7 +490,7 @@ var regisubmit = function(oForm) {
     oForm.uploadfiles.value = JSON.stringify($uploadfile);
 
     if( $.trim(oForm.uploadfiles.value) == '[]' ) {
-      alert('You must upload at least one profile photo.');
+      alert('You must upload at least 3 profile photos.');
       
       $('.fileinput-button span').focus();
       oForm.uploadfiles.focus();
@@ -481,7 +502,7 @@ var regisubmit = function(oForm) {
 
 $(document).ready(function() {
   
-  $.post('/contactus/get_form_data',{}, function(result) {
+  $.post('http://apply.wvene.com/contactus/get_form_data',{}, function(result) {
     //console.log(result);
     var json_obj = $.parseJSON(result);
 
@@ -498,7 +519,7 @@ $(document).ready(function() {
 
         html.push('<div class="col-md-6">');
 
-        if(value['var_type'].toLowerCase() == 'input') {
+        if(value['var_type'].toLowerCase() == 'input') { 
 
           html.push('<div class="form-group">');
           
@@ -631,4 +652,5 @@ $(document).ready(function() {
 </script>
 
 </body>
+	<div id="__genieContainer" style="all: initial;"></div>
 </html>
