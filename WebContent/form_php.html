@@ -126,7 +126,7 @@
 				  <label for="huey">Korean</label>&nbsp;&nbsp;
 				  <input type="radio" id="Other" name="nationality" value="Other">
 				  <label for="dewey">Other</label> -->
-  				   <input type="radio" name="nationality" id="r2" value="Korean" checked="checked"><label for="r2">Korean</label>
+  				   <input type="radio" name="nationality" id="r2" value="Korean"><label for="r2">Korean</label>
 				   <input type="radio" name="nationality" id="r1" value="Other" checked><label for="r1">Other</label>
 				   <input type="text" name="nationality" placeholder="Your country">
 				</div>
@@ -147,6 +147,24 @@
 				});
 
 				</script>
+				
+            </div>
+            <div class="col-md-6">
+
+              <div class="form-group">
+                <label>Email <small class="text-danger">*</small></label>
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <i class="fa fa-envelope"></i>
+                  </div>
+                  <input type="email" maxlength="50" class="form-control" name="email" placeholder="youremail@gmail.com" required="">
+                  <!--input type="text" class="form-control" name="phonenumber" data-inputmask='"mask": "9999-999-9999"' data-mask placeholder="phone number ..." required//-->
+                <script type="text/javascript">
+                </script>
+                </div>
+                <!-- /.input group -->
+              </div>
+
             </div>
         </div>
         <div class="row">
@@ -166,8 +184,28 @@
                   <div class="input-group-addon">
                     <i class="fa fa-phone"></i>
                   </div>
-                  <input type="tel" class="form-control" name="phonenumber" placeholder="010-5555-5555" required="">
+                  <input type="tel" id="uintTextBox" maxlength="30" class="form-control" name="phonenumber" placeholder="01055555555" required="">
                   <!--input type="text" class="form-control" name="phonenumber" data-inputmask='"mask": "9999-999-9999"' data-mask placeholder="phone number ..." required//-->
+                <script type="text/javascript">
+                (function($) {
+                	  $.fn.inputFilter = function(inputFilter) {
+                	    return this.on("input keydown keyup mousedown mouseup select contextmenu drop", function() {
+                	      if (inputFilter(this.value)) {
+                	        this.oldValue = this.value;
+                	        this.oldSelectionStart = this.selectionStart;
+                	        this.oldSelectionEnd = this.selectionEnd;
+                	      } else if (this.hasOwnProperty("oldValue")) {
+                	        this.value = this.oldValue;
+                	        this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+                	      } else {
+                	        this.value = "";
+                	      }
+                	    });
+                	  };
+                	}(jQuery));
+                $("#uintTextBox").inputFilter(function(value) {
+                	  return /^\d*$/.test(value); });
+                </script>
                 </div>
                 <!-- /.input group -->
               </div>
@@ -184,7 +222,7 @@
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                  <input type="text" class="form-control pull-right" name="birthday" id="datepicker" placeholder="Choose the date" required="">
+                  <input type="text" autocomplete="off" class="form-control pull-right" name="birthday" id="datepicker" placeholder="Choose the date" required="">
                 </div>
                 <!-- /.input group -->
               </div>
