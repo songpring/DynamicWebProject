@@ -9,6 +9,11 @@ html, body {
 	height: 100%
 }
 
+.name-form {
+	display: initial;
+	width: 30%;
+}
+
 
 .layout-boxed html, .layout-boxed body {
 	height: 100%

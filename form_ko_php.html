@@ -2,7 +2,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Be Our Creator</title>
+  <title>크리에이터 지원</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -70,10 +70,10 @@
      <!-- general form elements disabled -->
       <div class="box box-warning">
         <div class="box-header with-border">
-          <h3 class="box-title">Creator Application Form</h3>
-          <ul class="nav navbar-nav navbar-right">
+          <h3 class="box-title">크리에이터 지원서 작성</h3>
+         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
-                <a href="#" class="dropdown-toggle language-a" data-toggle="dropdown"> Language <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle language-a" data-toggle="dropdown"> 언어 <span class="caret"></span></a>
                 <ul class="dropdown-menu dropdown-width" role="menu">
                   <li><a href="http://apply.wvene.com/contactus_ko" onclick="">한국어</a></li>
                   <li><a href="http://apply.wvene.com/contactus" onclick="">English</a></li>
@@ -95,21 +95,21 @@
 	                <p>Interested applicants may submit below form with your photos.</p>
 	                <p>- Must be over 18 years old </p>
 	                <p>- Preferred language: English, Korean</p> -->
-	                <p><strong>[Required] Qualification Check</strong></p>
-	                <p>1. Only adult can apply. (Older than 19 years of age)</p>
-	                <p>2. Korean and/or English speaker can apply.</p>	                
-	                <p><input type="checkbox" required="required"> Qualified <small class="text-danger">*</small></p>
+	                <p><strong>[필수] 지원자격 요건 확인</strong></p>
+	                <p>1. 만 19세 이상 성인만 지원 가능합니다.</p>
+	                <p>2. 구사 언어가 한국어 또는 영어일 경우 지원 가능합니다.</p>	                
+	                <p><input type="checkbox" required="required"> 확인하였습니다 <small class="text-danger">*</small></p>
 	                <p>&nbsp;</p>
-	                <p><strong>[Required] Collection and Use of Personal Information </strong></p>
-	                <p>The company is committed to comply with the Act on the Protection of Personal Information of Korea and other related legislation.</p>
-	                <p>1. Purpose: personal identification, inquiry and qualification check, contact, application history check</p>
-	                <p>2. Items: name, contact info, date of birth, SNS account, photos</p>	                
-	                <p><input type="checkbox" required="required"> I agree <small class="text-danger">*</small></p>
+	                <p><strong>[필수] 개인정보 수집·이용 동의</strong></p>
+	                <p>당사는 "개인정보보호법" 등 개인정보보호에 관한 제반 법령을 준수합니다.</p>
+	                <p>1. 목적: 지원자 개인 식별, 지원의사 확인, 의사소통, 지원이력 및 지원자격 확인</p>
+	                <p>2. 해당항목: 이름, 연락처, 생년월일, SNS 계정주소, 사진</p>	                
+	                <p><input type="checkbox" required="required"> 동의합니다 <small class="text-danger">*</small></p>
 	                <p>&nbsp;</p>
-	                <p><strong>[Required] Portrait Agreement </strong></p>
-	                <p>1. Content: The submitted materials by an applicant can be used in company's website, portfolio and advertisement</p>
-	                <p>2. Items: submitted photos and videos</p>	                
-	                <p><input type="checkbox" required="required"> I agree <small class="text-danger">*</small></p>
+	                <p><strong>[필수] 저작권 및 초상권 활용 동의</strong></p>
+	                <p>1. 목적: 당사 홈페이지 전반 및 광고물 내 활용 가능</p>
+	                <p>2. 해당항목: 제출한 프로필 사진 및 동영상</p>	                
+	                <p><input type="checkbox" required="required"> 동의합니다 <small class="text-danger">*</small></p>
 	              </div>
 				</div>
 				
@@ -120,14 +120,14 @@
             <div class="col-md-6">
               <!-- nationality selection -->
 	            <div class="form-group">
-	            <label>Nationality <small class="text-danger">*</small></label><br>
+	            <label>국적 <small class="text-danger">*</small></label><br>
 				 <!--  <input type="radio" id="Korean" name="nationality" value="Korean"
 				         checked>
 				  <label for="huey">Korean</label>&nbsp;&nbsp;
 				  <input type="radio" id="Other" name="nationality" value="Other">
 				  <label for="dewey">Other</label> -->
-  				   <input type="radio" name="nationality" id="r2" value="Korean"><label for="r2">Korean</label>
-				   <input type="radio" name="nationality" id="r1" value="Other" checked><label for="r1">Other</label>
+  				   <input type="radio" name="nationality" id="r2" value="Korean"><label for="r2">한국</label>
+				   <input type="radio" name="nationality" id="r1" value="Other" checked><label for="r1">기타</label>
 				   <!-- <input type="text" name="nationality" placeholder="Your country">-->
 				   <input type="text" maxlength="30" class="form-control name-form" id="nationality" name="nationality" placeholder="Your country">
 				</div>
@@ -149,7 +149,7 @@
 				    $("#nationality").keyup(function(event){
 				    	if (!(event.keyCode >=37 && event.keyCode<=40)) {
 				    	var inputVal = $(this).val();
-				    	$(this).val(inputVal.replace(/[^a-z ]/gi,''));
+				    	$(this).val(inputVal.replace(/[^a-zㄱ-ㅎ가-힣 ]/gi,''));
 				    	}
 				    	});
 				    
@@ -161,7 +161,7 @@
             <div class="col-md-6">
 
               <div class="form-group">
-                <label>Email <small class="text-danger">*</small></label>
+                <label>이메일 <small class="text-danger">*</small></label>
                 <div class="input-group">
                   <div class="input-group-addon">
                     <i class="fa fa-envelope"></i>
@@ -180,15 +180,15 @@
 			<div class="col-md-6">
               <!-- text input -->
               <div class="form-group">
-                <label>Name <small class="text-danger">*</small></label>
-                <input type="text" maxlength="50" class="form-control" name="name" placeholder="Name" required="">
+                <label>이름 <small class="text-danger">*</small></label>
+                <input type="text" maxlength="50" class="form-control" name="name" placeholder="이름" required="">
               </div>
 
             </div>
             <div class="col-md-6">
 
               <div class="form-group">
-                <label>Phone number <small class="text-danger">*</small></label>
+                <label>전화번호 <small class="text-danger">*</small></label>
                 <div class="input-group">
                   <div class="input-group-addon">
                     <i class="fa fa-phone"></i>
@@ -225,13 +225,13 @@
             <div class="col-md-6">
               <!-- Date -->
               <div class="form-group">
-                <label>Date of Birth <small class="text-danger">*</small></label>
+                <label>생년월일 <small class="text-danger">*</small></label>
 
                 <div class="input-group date">
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                  <input type="text" autocomplete="off" class="form-control pull-right" name="birthday" id="datepicker" placeholder="Choose the date" required="">
+                  <input type="text" autocomplete="off" class="form-control pull-right" name="birthday" id="datepicker" placeholder="날짜 선택" required="">
                 </div>
                 <!-- /.input group -->
               </div>
@@ -241,17 +241,17 @@
 
               <!-- SNS -->
               <div class="form-group">
-                <label>SNS account <small class="text-danger">*</small></label>
+                <label>SNS 계정 <small class="text-danger">*</small></label>
 
                 <div class="input-group">
                   <div class="input-group-addon">
                     <i class="fa fa-facebook-official"></i>
                   </div>
-                  <input type="text" class="form-control pull-right sns" maxlength="25" name="sns" placeholder="Facebook">
+                  <input type="text" class="form-control pull-right sns" maxlength="25" name="sns" placeholder="페이스북">
                   <div class="input-group-addon">
                     <i class="fa fa-instagram"></i>
                   </div>
-                  <input type="text" class="form-control pull-right sns" maxlength="20" name="instagram" placeholder="Instagram">
+                  <input type="text" class="form-control pull-right sns" maxlength="20" name="instagram" placeholder="인스타그램">
                 </div>
                 <!-- /.input group -->
               </div>
@@ -266,7 +266,7 @@
               <div class="panel panel-default" style="margin-bottom:0;">
                 <div class="panel-heading">
                   <small class="pull-right"><i class="fa fa-photo"></i></small>
-                  <h3 class="panel-title"><a href="#">Upload profile photos.  <small>attach at least 3 photos</small><small class="text-danger">*</small></a></h3><a href="#">	
+                  <h3 class="panel-title"><a href="#">프로필사진 등록 <small>최소 3개 이상 등록 필수</small><small class="text-danger">*</small></a></h3><a href="#">	
                 </a></div><a href="#">
                 <div class="panel-body">
 
@@ -276,7 +276,7 @@
                         <!-- The fileinput-button span is used to style the file input field as button -->
                         <span class="btn btn-success fileinput-button">
                             <i class="glyphicon glyphicon-plus"></i>
-                            <span>Add files...</span>
+                            <span>파일찾기</span>
                             <input type="file" name="files[]" multiple="" accept="image/*">
                         </span>
                         <!-- The global file processing state -->
@@ -311,7 +311,7 @@
       <!-- /.box  personal rating recode -->
 
 <div class="submit-button">
-      <button type="submit" class="btn btn-primary btn-lg btn-block margin-bottom">Submit</button>
+      <button type="submit" class="btn btn-primary btn-lg btn-block margin-bottom">지원하기</button>
 </div>
     </section>
       </form>
@@ -503,19 +503,19 @@ var regisubmit = function(oForm) {
     //event.preventDefault();
 
     if( $.trim($('input[name="name"]').val()) == '' ) {
-      alert('Please fill out all information.');
+      alert('필수정보를 모두 기입해주세요.');
       $('input[name="name"]').focus();
       return false;
     }
 
     if( $.trim($('input[name="phonenumber"]').val()) == '' ) {
-      alert('Please fill out all information.');
+      alert('필수정보를 모두 기입해주세요.');
       $('input[name="phonenumber"]').focus();
       return false;
     }
 
     if( $.trim($('input[name="birthday"]').val()) == '' ) {
-      alert('Please fill out all information.');
+      alert('필수정보를 모두 기입해주세요.');
       $('input[name="birthday"]').focus();
       return false;
     }
@@ -523,7 +523,7 @@ var regisubmit = function(oForm) {
  print($('input[name="birthday"]').val())
 
     if( $.trim($('input[name="sns"]').val()) == '' && $.trim($('input[name="instagram"]').val()) == '') {
-        alert('Please fill out one of SNS accounts.');
+        alert('SNS 계정을 하나이상 입력해주세요.');
         $('input[name="sns"]').focus();
         return false;
       }
@@ -537,7 +537,7 @@ var regisubmit = function(oForm) {
     oForm.uploadfiles.value = JSON.stringify($uploadfile);
 
     if( $.trim(oForm.uploadfiles.value) == '[]' ) {
-      alert('You must upload at least 3 profile photos.');
+      alert('프로필사진은 3장이상 업로드 필수입니다.');
       
       $('.fileinput-button span').focus();
       oForm.uploadfiles.focus();
