@@ -16,8 +16,13 @@
 <noscript><link rel="stylesheet" href="/assets/plugins/jQuery-File-Upload-9.21.0/css/jquery.fileupload-noscript.css"></noscript>
 <noscript><link rel="stylesheet" href="/assets/plugins/jQuery-File-Upload-9.21.0/css/jquery.fileupload-ui-noscript.css"></noscript>
 
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+
 <!-- jQuery -->
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 
 <!-- favicon -->	
   <link rel="icon" type="image/png" href="/assets/dist/img/favicon2-32x32.png" />
@@ -129,7 +134,9 @@
   				   <input type="radio" name="nationality" id="r2" value="Korean"><label for="r2">Korean</label>
 				   <input type="radio" name="nationality" id="r1" value="Other" checked><label for="r1">Other</label>
 				   <!-- <input type="text" name="nationality" placeholder="Your country">-->
-				   <input type="text" maxlength="30" class="form-control name-form" id="nationality" name="nationality" placeholder="Your country">
+				   <input type="text" maxlength="30" class="form-control name-form" id="nationality" name="nationality" placeholder="Your country" required="required">
+				   <select class="selectpicker countrypicker" data-flag="true" ></select>
+				   
 				</div>
 				<script type="text/javascript">
 				$(document).ready(function(){
@@ -499,6 +506,21 @@ $(function () {
 
 
 var regisubmit = function(oForm) {
+	
+	if( $.trim($('input[name="birthday"]').val())) {
+		var birth = $('input[name="birthday"]').val();
+	    birth = birth.replace('-', '').replace('-', '');
+	    var birthdayy = birth.substr(0, 4);
+	    var birthdaymd = birth.substr(4, 4);
+	    var age = monthDay < birthdaymd ? year - birthdayy - 1 : year - birthdayy;
+		alert('계산 된 만 나이 : ' + age);
+		return false;
+	}
+	/* if( $.trim($('input[name="birthday"]').val()) == '' ) {
+	      alert('Please fill out all information.');
+	      $('input[name="birthday"]').focus();
+	      return false;
+	    } */
 
     //event.preventDefault();
 
@@ -537,7 +559,7 @@ var regisubmit = function(oForm) {
     oForm.uploadfiles.value = JSON.stringify($uploadfile);
 
     if( $.trim(oForm.uploadfiles.value) == '[]' ) {
-      alert('You must upload at least 3 profile photos.');
+      alert('You must upload at least 3 profile photos. console.log(oForm.uploadfiles.value: ');
       
       $('.fileinput-button span').focus();
       oForm.uploadfiles.focus();

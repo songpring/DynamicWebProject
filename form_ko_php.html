@@ -126,10 +126,10 @@
 				  <label for="huey">Korean</label>&nbsp;&nbsp;
 				  <input type="radio" id="Other" name="nationality" value="Other">
 				  <label for="dewey">Other</label> -->
-  				   <input type="radio" name="nationality" id="r2" value="Korean"><label for="r2">한국</label>
-				   <input type="radio" name="nationality" id="r1" value="Other" checked><label for="r1">기타</label>
+  				   <input type="radio" name="nationality" id="r2" value="Korean" checked><label for="r2">한국</label>
+				   <input type="radio" name="nationality" id="r1" value="Other"><label for="r1">기타</label>
 				   <!-- <input type="text" name="nationality" placeholder="Your country">-->
-				   <input type="text" maxlength="30" class="form-control name-form" id="nationality" name="nationality" placeholder="Your country">
+				   <input type="text" maxlength="30" class="form-control name-form" id="nationality" disabled="disabled" name="nationality" placeholder="Your country">
 				</div>
 				<script type="text/javascript">
 				$(document).ready(function(){
@@ -535,6 +535,7 @@ var regisubmit = function(oForm) {
     })
 
     oForm.uploadfiles.value = JSON.stringify($uploadfile);
+    
 
     if( $.trim(oForm.uploadfiles.value) == '[]' ) {
       alert('프로필사진은 3장이상 업로드 필수입니다.');
